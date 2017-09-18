@@ -16,3 +16,9 @@ input {
     display: inline-block;
     margin: 0;
 }
+
+#btnPow,
+#btn10 {
+    display: inline-block;
+    margin: 0;
+}

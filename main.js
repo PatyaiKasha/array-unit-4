@@ -54,11 +54,19 @@ function pushBtn() {
 // и степень числа. Используя Math.Pow внутри функции, возведите
 // число в степень и выведите с помощью alert.
 
-function mathPow(x, y) {
-    alert('Задача №5: ' + x + " в степени " + y + " = " + Math.pow(x, y));
-}
 
-mathPow(6, 5);
+document.getElementById('btnPow').onclick = function() {
+    var a5 = document.getElementById('in51').value;
+    var b5 = document.getElementById('in52').value;
+    mathPow(a5, b5);
+};
+
+function mathPow(x, y) {
+    var out = document.getElementById('resPow');
+    out.innerHTML = Math.pow(x, y);
+    // var res = Math.pow(x, y);
+    // alert('Результат: ' + res);
+}
 
 // Задача 6. Создайте функцию, которая принимает один
 // параметр – строку, которая содержит тег. При вызове функции,
@@ -66,16 +74,16 @@ mathPow(6, 5);
 // Т.е. если пользователь вызвал функцию с параметром ‘p’ – то
 // подчеркиваются абзацы.
 
-var tag = prompt('Задача №6\nВведите имя <тэга>:', '');
-
-underlineTag(tag);
+document.getElementById('underLine').onclick = function() {
+    var tagName = document.getElementById('tagName').value;
+    underlineTag(tagName);
+}
 
 function underlineTag(arg) {
-    var underlineTag = document.getElementsByTagName(arg);
-    var out = '';
-    for (var i = 0; i < underlineTag.length; i++) {
-        underlineTag[i].style.textDecoration = 'underline';
-        underlineTag[i].style.color = 'lime';
+    var underlineDecore = document.getElementsByTagName(arg);
+    for (var i = 0; i < underlineDecore.length; i++) {
+        underlineDecore[i].style.textDecoration = 'underline';
+        underlineDecore[i].style.color = 'lime';
     }
 }
 
@@ -124,19 +132,20 @@ arrLength(arr);
 // что число меньше 7. Если 8, 9 – то возвращает соответственно 
 // 7 или 8. Реализуйте решение с несколькими return.
 
-var num = prompt('Задача №10\nВведите число:', '');
-
-function nums() {
-    if (num > 10) {
-        return num * num;
-    } else if (num < 7) {
-        return 'Число меньше 7';
-    } else if (num >= 7 && num <= 10) {
-        return num;
-    }
+document.getElementById('btn10').onclick = function() {
+    var num = document.getElementById('in10').value;
+    document.getElementById('resRes').innerHTML = nums(num);
 }
 
-alert('Задача №10\nОтвет: ' + nums());
+function nums(a) {
+    if (a > 10) {
+        return a * a;
+    } else if (a < 7) {
+        return 'Число меньше 7';
+    } else if (a >= 7 && a <= 10) {
+        return a;
+    }
+}
 
 // Задача 11. Напишите игру «Угадай число». При загрузке страницы 
 // генерируется случайное число от 0 до 10. Пользователю дается 
